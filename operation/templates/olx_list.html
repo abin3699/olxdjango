@@ -1,0 +1,42 @@
+{% extends 'base.html'%}
+
+{% block title_block%}
+<title>vehicle list</title>
+{% endblock%}
+
+
+
+{% block body_block%}
+
+{{request.user}}
+
+<div class="container">
+    <div class="row mt-5">
+        <div class="col-3"></div>
+        <div class="col-6">
+            <table class="table table stripped table-dark">
+                <tr>
+                    <td>name</td>
+                    <td>modelyr</td>
+                    <td>price</td>
+                    <td>Action</td>
+                </tr>
+                {%for vh in vehicles%}
+                <tr>
+                    <td>{{vh.name}}</td>
+                    <td>{{vh.modelyr}}</td>
+                    <td>{{vh.price}}</td>
+                    <td>
+                        <a href="{% url 'olx-detail' vh.id %}" class="ms-1"><i class="fa-regular fa-eye text-info"></i></a>
+                        <a href="{% url 'olx-remove' vh.id %}" class="ms-1"><i class="fa-solid fa-trash text-danger"></i></a>
+                        <a href="{% url 'olx-change' vh.id %}" class="ms-1"><i class="fa-regular fa-pen-to-square text-warning"></i></a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
+        <div class="col-3"></div>
+    </div>
+</div>
+
+{% endblock %}

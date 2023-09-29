@@ -1,0 +1,26 @@
+{% extends 'base.html'%}
+
+{% block title_block%}
+
+<title>Update details</title>
+
+{% endblock%}
+
+{% block body_block%}
+<div class="container">
+    <div class="row">
+        <div class="col-2"></div>
+        <div class="col-8 p-4 border shadow">
+            <h1 class="text-center mt-4">change vehicles data!!!</h1>
+            <form action="" method="post" enctype="multipart/form-data">
+                
+                {% csrf_token %}
+                {{form.as_p}}
+                <button type="submit" class="btn btn-outline-info form-control">change</button>
+            </form>
+        </div>
+        <div class="col-2"></div>
+    </div>
+</div>
+
+{% endblock%}
