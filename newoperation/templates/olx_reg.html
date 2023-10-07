@@ -1,0 +1,35 @@
+{%extends 'olx_base.html'%}
+
+{%block title_block%}
+
+<title>Registration</title>
+
+{%endblock%}
+
+
+{%block body_block%}
+
+{% if messages%}
+
+         {% for mes in messages%}
+            {{mes}}
+
+         {%endfor%}
+
+    {%endif%}
+
+    <div class="container">
+        <div class="row">
+            <div class="col-2"></div>
+            <div class="col-8 border shadow mt-3 p-3">
+                <form action="" method="post">
+                    {%csrf_token%}
+                    {{form.as_p}}
+                    <input type="submit" class="btn-outline-primary form-control" value="register">
+                </form>
+            </div>
+            <div class="col-2"></div>
+        </div>
+    </div>
+
+{%endblock%}

@@ -1,0 +1,35 @@
+{%extends 'olx_base.html'%}
+
+{%block title_block%}
+
+<title>login</title>
+{%endblock%}
+
+
+{%block body_block%}
+
+{% if messages%}
+
+         {% for mes in messages%}
+            {{mes}}
+         {%endfor%}
+
+    {%endif%}
+
+    {{request.user}}
+
+    <div class="container">
+        <div class="row">
+            <div class="col-3"></div>
+            <div class="col-6 border shadow mt-5 p-3">
+                <form action="" method="post">
+                    {%csrf_token%}
+                    {{form.as_p}}
+                    <input type="submit" class="btn-outline-primary form-control" value="login">
+                </form>
+            </div>
+            <div class="col-3"></div>
+        </div>
+    </div>
+
+{%endblock%}

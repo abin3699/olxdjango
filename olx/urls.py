@@ -15,7 +15,7 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import path,include
 from django.conf import settings
 from django.conf.urls.static import static
 from operation.views import olxCreateView,OlxListView,OlxDetailView,\
@@ -30,7 +30,8 @@ urlpatterns = [
     path("olx/<int:pk>/change",OlxUpadateView.as_view(),name="olx-change"),
     path("registration",SignUpView.as_view(),name="register"),
     path("signin",SigninView.as_view(),name="signin"),
-    path("signout",signout,name="signout")
+    path("signout",signout,name="signout"),
+    path("v1/olx/",include("newoperation.urls")),
 
 
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -1,0 +1,39 @@
+{% extends 'olx_base.html'%}
+
+{%block title_block%}
+
+<title>olx Add</title>
+
+{%endblock%}
+
+{%block body_block%}
+
+{% if messages%}
+
+         {% for mes in messages%}
+            {{mes}}
+
+         {%endfor%}
+
+    {%endif%}
+
+    {{request.user}}
+    
+    <h1 class="text-center mt-5">Add new vehicle!!!</h1>
+    <div class="container">
+        <div class="row">
+            <div class="col-3"></div>
+            <div class="col-6">
+                <form action="" method="post" enctype="multipart/form-data" class="p-4 border shadow">
+                    {%csrf_token%}
+                    {{form.as_p}}
+                    <div class="mb-3">
+                        <button type="submit" class="btn btn-outline-primary form-control">Add</button>
+                    </div>
+                </form>
+            </div>
+            <div class="col-3"></div>
+        </div>
+    </div>
+
+{% endblock%}
